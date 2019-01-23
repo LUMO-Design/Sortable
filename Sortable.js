@@ -659,7 +659,7 @@
 				cloneEl.draggable = false;
 				cloneEl.style['will-change'] = '';
 
-				_css(cloneEl, 'display', 'none');
+				_css(cloneEl, 'visibility', 'hidden');
 				_toggleClass(cloneEl, _this.options.chosenClass, false);
 
 				// #1143: IFrame support workaround
@@ -1188,7 +1188,7 @@
 		}
 
 		if (cloneEl && (cloneEl.state !== state)) {
-			_css(cloneEl, 'display', state ? 'none' : '');
+			_css(cloneEl, 'visibility', state ? 'hidden' : 'visible');
 
 			if (!state) {
 				if (cloneEl.state) {
