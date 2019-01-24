@@ -660,7 +660,7 @@
 				cloneEl.draggable = false;
 				cloneEl.style['will-change'] = '';
 
-                if (options.cloneHideMode) {
+                if (_this.options.cloneHideMode) {
                     _css(cloneEl, 'visibility', 'hidden');
                 } else {
                     _css(cloneEl, 'display', 'none');
@@ -1188,12 +1188,13 @@
 
 
 	function _cloneHide(sortable, state) {
+        var _this = this;
 		if (sortable.lastPullMode !== 'clone') {
 			state = true;
 		}
 
 		if (cloneEl && (cloneEl.state !== state)) {
-            if (options.cloneHideMode) {
+            if (_this.options.cloneHideMode) {
                 _css(cloneEl, 'visibility', state ? 'hidden' : 'visible');
             } else {
                 _css(cloneEl, 'display', state ? 'none' : '');
