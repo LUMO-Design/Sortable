@@ -278,7 +278,8 @@
 			fallbackOnBody: false,
 			fallbackTolerance: 0,
 			fallbackOffset: {x: 0, y: 0},
-			supportPointer: Sortable.supportPointer !== false
+			supportPointer: Sortable.supportPointer !== false,
+			cloneHideMode: false
 		};
 
 
@@ -659,7 +660,11 @@
 				cloneEl.draggable = false;
 				cloneEl.style['will-change'] = '';
 
-				_css(cloneEl, 'visibility', 'hidden');
+                if (options.cloneHideMode) {
+                    _css(cloneEl, 'visibility', 'hidden');
+                } else {
+                    _css(cloneEl, 'display', 'none');
+                }
 				_toggleClass(cloneEl, _this.options.chosenClass, false);
 
 				// #1143: IFrame support workaround
@@ -1188,7 +1193,11 @@
 		}
 
 		if (cloneEl && (cloneEl.state !== state)) {
-			_css(cloneEl, 'visibility', state ? 'hidden' : 'visible');
+            if (options.cloneHideMode) {
+                _css(cloneEl, 'visibility', state ? 'hidden' : 'visible');
+            } else {
+                _css(cloneEl, 'display', state ? 'none' : '');
+            }
 
 			if (!state) {
 				if (cloneEl.state) {
