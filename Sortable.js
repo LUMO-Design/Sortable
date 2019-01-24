@@ -1188,13 +1188,12 @@
 
 
 	function _cloneHide(sortable, state) {
-        var _this = this;
 		if (sortable.lastPullMode !== 'clone') {
 			state = true;
 		}
 
 		if (cloneEl && (cloneEl.state !== state)) {
-            if (_this.options.cloneHideMode) {
+            if (sortable.options.cloneHideMode) {
                 _css(cloneEl, 'visibility', state ? 'hidden' : 'visible');
             } else {
                 _css(cloneEl, 'display', state ? 'none' : '');
